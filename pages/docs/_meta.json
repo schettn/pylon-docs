@@ -1,0 +1,19 @@
+{
+  "getting-started": "Getting Started",
+  "installation": "Installation",
+  "integrations": "integrations",
+  "core-concepts": "Core Concepts",
+  "contributing": "Contributing",
+
+  "legal": "Legal",
+  "about": {
+    "title": "About",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://cronit.io/contact",
+    "newWindow": true
+  }
+}
