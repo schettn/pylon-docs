@@ -114,7 +114,24 @@ export default defineService({
    }
    ```
 
-4. **Enums**: Define a set of named constants with enums, which are useful for representing a fixed set of related values.
+4. **Static Functions**: Define static functions within classes to encapsulate logic related to the class.
+
+   ```typescript
+   class Product {
+     constructor(
+       public id: number,
+       public name: string,
+       public price: number
+     ) {}
+
+     static fromJSON(json: string): Product {
+       const data = JSON.parse(json);
+       return new Product(data.id, data.name, data.price);
+     }
+   }
+   ```
+
+5. **Enums**: Define a set of named constants with enums, which are useful for representing a fixed set of related values.
 
    ```typescript
    enum Status {
@@ -123,7 +140,7 @@ export default defineService({
    }
    ```
 
-5. **Functions**: Leverage TypeScript's type annotations in your functions to ensure type safety for parameters and return values.
+6. **Functions**: Leverage TypeScript's type annotations in your functions to ensure type safety for parameters and return values.
 
    ```typescript
    const getUser = (id: number): User => {
