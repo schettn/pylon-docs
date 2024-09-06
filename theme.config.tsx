@@ -10,7 +10,7 @@ const config: DocsThemeConfig = {
     link: "https://github.com/getcronit/pylon",
   },
   chat: {
-    link: "https://discord.gg/gER3Ktde",
+    link: "https://discord.gg/cbJjkVrnHe",
   },
   docsRepositoryBase: "https://github.com/schettn/pylon-docs",
   footer: {
