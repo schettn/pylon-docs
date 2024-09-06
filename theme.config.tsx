@@ -5,6 +5,14 @@ import Logo from "./components/logo";
 import { useRouter } from "next/router";
 
 const config: DocsThemeConfig = {
+  banner: {
+    key: "2.0-release",
+    text: (
+      <a href="/blog/pylon-2.0" target="_blank">
+        🎉 Pylon 2.0 is released. Read more →
+      </a>
+    ),
+  },
   logo: <Logo />,
   project: {
     link: "https://github.com/getcronit/pylon",

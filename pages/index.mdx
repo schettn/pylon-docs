@@ -2,20 +2,23 @@
 title: Code-First GraphQL API Development
 ---
 
-import { Callout } from '@components/callout'
-import Features from 'components/features'
-import { Bleed } from 'nextra-theme-docs'
+import { Callout } from "@components/callout";
+import Features from "components/features";
+import { Bleed } from "nextra-theme-docs";
 
 {
 // wrapped with {} to mark it as javascript so mdx will not put it under a p tag
 }
 {<h1 className="text-center text-4xl tracking-tighter font-extrabold md:text-5xl mt-8">
 Pylon
+
 </h1>}
 
-<Bleed><Features/></Bleed>
+<Bleed>
+  <Features />
+</Bleed>
 
-[![Pylon Hero Section](https://github.com/getcronit/pylon/assets/52858351/9ce5833f-c4ce-4dc5-85a9-6eb3910b40bd)](https://pylon.cronit.io)
+[![Pylon Hero Section](/images/pylon-overview.png)](/images/pylon-overview.png)
 
 The GraphQL schema is generated in real-time from your TypeScript definitions,
 allowing you to focus solely on writing your service logic.
@@ -29,36 +32,38 @@ enabling you to immediately see how changes impact its functionality.
 </Callout>
 
 <div className="mt-16 mb-20 text-center">
-  [Get Started](/docs/getting-started) · [Examples](/examples/basic) · [Blog](/blog) · [GitHub Repository](https://github.com/getcronit/pylon)
+  [Get Started](/docs/getting-started) · [Examples](/examples/basic) ·
+  [Blog](/blog) · [GitHub Repository](https://github.com/getcronit/pylon)
 </div>
 
 ## Overview [#overview]
 
 ```jsx
-import { defineService, logger } from "@getcronit/pylon";
+import { app } from "@getcronit/pylon";
 
-export default defineService({
+export const graphql = {
   Query: {
     sum: (a: number, b: number) => {
-      logger.info(`Calculating sum of ${a} and ${b}`);
+      console.log(`Calculating sum of ${a} and ${b}`);
       return a + b;
     },
   },
   Mutation: {
     divide: (a: number, b: number) => {
       if (b === 0) {
-        logger.error('Attempt to divide by zero');
-        throw new Error('Division by zero is not allowed');
+        console.error("Attempt to divide by zero");
+        throw new Error("Division by zero is not allowed");
       }
       logger.info(`Dividing ${a} by ${b}`);
       return a / b;
     },
   },
-});
+};
+
+export default app;
 ```
 
 In this example, we define a simple service with two operations: `sum` and `divide`. The type definitions for the arguments and return values are automatically inferred from the function signatures. Pylon generates the corresponding GraphQL schema based on these definitions.
-
 
 Pylon offers a comprehensive set of features to streamline the development of modern web services:
 
@@ -94,5 +99,6 @@ Pylon is maintained by the team at cronit. Stay updated with the latest developm
 
 - Open an [issue on GitHub](https://github.com/getcronit/pylon/issues) to report bugs or suggest new features.
 - Join the [discussions on GitHub](https://github.com/getcronit/pylon/discussions).
+- Join the [Pylon Discord server](https://discord.gg/gER3Ktde) to connect with other users and contributors.
 
 Feel free to explore the documentation and contribute to the project!

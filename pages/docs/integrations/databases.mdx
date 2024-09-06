@@ -15,12 +15,12 @@ Follow the setup instructions in the [Prisma documentation](https://www.prisma.i
 Here's an example of how to define a Pylon service using Prisma:
 
 ```typescript
-import { defineService } from "@getcronit/pylon";
+import { app } from "@getcronit/pylon";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export default defineService({
+export const graphql = {
   Query: {
     // Example query using Prisma
     getUser: async (id: number) => {
@@ -37,11 +37,15 @@ export default defineService({
       });
     },
   },
-});
+};
+
+export default app;
 ```
 
 <Callout type="note" title="Note">
-  When using plain Prisma without additional extensions, relations are not resolved automatically in the GraphQL schema. To resolve relations and create paginatable connections, consider using `@getcronit/prisma-extended-models`.
+  When using plain Prisma without additional extensions, relations are not
+  resolved automatically in the GraphQL schema. To resolve relations and create
+  paginatable connections, consider using `@getcronit/prisma-extended-models`.
 </Callout>
 
 ## Using prisma-extended-models (recommended)
@@ -85,16 +89,18 @@ my-pylon-project/
 The `Post`, `Author`, and `User` models are extended with additional fields and methods to resolve relations and create paginatable connections. The `client.ts` file exports the Prisma client instance, and the `.generated.ts` file contains the generated Prisma models and helper functions.
 
 <Callout type="note" title="Note">
-  All models can be extended with additional fields and methods. This allows developers to customize the models according to their requirements, for example, securing sensitive fields with access control.
+  All models can be extended with additional fields and methods. This allows
+  developers to customize the models according to their requirements, for
+  example, securing sensitive fields with access control.
 </Callout>
 
 Here's an example of how to use extended Prisma models in a Pylon service:
 
 ```typescript
-import { defineService } from "@getcronit/pylon";
+import { app } from "@getcronit/pylon";
 import { Post } from "../repository/models";
 
-export default defineService({
+export const graphql = {
   Query: {
     // Example query using extended Prisma models
     getPost: async (id: number) => {
@@ -114,13 +120,17 @@ export default defineService({
       });
     },
   },
-});
+};
+
+export default app;
 ```
 
 Assuming the `Post` model has a relation to the `User` model, the extended Prisma model will automatically resolve the relation when fetching a post and create paginatable connections for the `User` model.
 
 <Callout type="note" title="Note">
-  When using extended Prisma models, ensure that the generated models are up-to-date with your Prisma schema. You can regenerate the models by running the `bunx prisma-extended-models generate` command.
+  When using extended Prisma models, ensure that the generated models are
+  up-to-date with your Prisma schema. You can regenerate the models by running
+  the `bunx prisma-extended-models generate` command.
 </Callout>
 
 ### Example in action
@@ -221,7 +231,7 @@ ENTRYPOINT [ "bun", "run", "./node_modules/.bin/pylon-server" ]
 For databases other than Prisma, such as MongoDB, developers need to define type interfaces separately and handle database operations accordingly. Here's an example of integrating MongoDB with Pylon:
 
 ```typescript
-import { defineService } from "@getcronit/pylon";
+import { app } from "@getcronit/pylon";
 import { MongoClient } from "mongodb";
 
 const uri = "mongodb://localhost:27017";
@@ -236,7 +246,7 @@ let usersCollection: any;
   usersCollection = database.collection("users");
 })();
 
-export default defineService({
+export const graphql = {
   Query: {
     // Example query using MongoDB
     getUser: async (id: string) => {
@@ -250,12 +260,16 @@ export default defineService({
       return user;
     },
   },
-});
+};
+
+export default app;
 ```
 
 <Callout type="warning" title="Warning">
-  When using other databases, ensure proper type definitions for Pylon to maintain type safety and schema generation.
-  When using the `any` type, Pylon will expose all data of the document to the schema, which may lead to security vulnerabilities.
+  When using other databases, ensure proper type definitions for Pylon to
+  maintain type safety and schema generation. When using the `any` type, Pylon
+  will expose all data of the document to the schema, which may lead to security
+  vulnerabilities.
 </Callout>
 
 ## Conclusion

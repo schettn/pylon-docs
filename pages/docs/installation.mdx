@@ -2,10 +2,10 @@
 
 Before you start, make sure you have the following installed:
 
-* [Bun](https://bun.sh) (A fast JavaScript runtime)
-* [npm](https://www.npmjs.com/get-npm)
-* [yarn](https://yarnpkg.com/getting-started/install) (optional)
-* [Git](https://git-scm.com/downloads)
+- [Bun](https://bun.sh) (A fast JavaScript runtime)
+- [npm](https://www.npmjs.com/get-npm)
+- [yarn](https://yarnpkg.com/getting-started/install) (optional)
+- [Git](https://git-scm.com/downloads)
 
 ## Installation
 
@@ -27,32 +27,29 @@ To start the development server, navigate to the project directory and run the f
 
 ```bash
 cd my-pylon-project
-bun run develop
+bun run dev
 ```
 
 ## Installed packages
 
 Pylon comes with a set of pre-installed packages that you can use to build your project. Here are some of the packages that are included:
 
-* @getcronit/pylon
-  * The core Pylon package that provides all the tools to develop your project.
-  * Includes a set of pre-built functionalities that you can use to build your project.
-* @getcronit/pylon-cli
-  * `pylon` command line interface.
-  * Used to create and manage Pylon projects.
-  * Used to build and run Pylon projects.
-  * `pylon --help` for more information.
-* @getcronit/pylon-builder
-  * A build tool that compiles your project into a single file.
-  * Used to build your project for production.
-  * Optimizes your project for performance.
-  * Minifies your project for size.
-  * `pylon build --help` for more information.
-* @getcronit/pylon-server
-  * The deployment server for Pylon projects.
-  * Supports SSL and custom ports
-  * `pylon-server --help` for more information.
+- create-pylon
+  - A tool to create a new Pylon project.
+  - `npm create pylon --help` for more information.
+- @getcronit/pylon
+  - The core Pylon package that provides all the tools to develop your project.
+  - Includes a set of pre-built functionalities that you can use to build your project.
+- @getcronit/pylon-dev
+  - `pylon` command line interface for development.
+  - Used to build and run Pylon projects.
+  - `pylon --help` for more information.
+- @getcronit/pylon-builder
+  - A build tool that compiles your project into a single file.
+  - Provides automatic schema generation of `export const graphql` objects.
+  - Bundles the schema and resolvers into the `.pylon` folder.
+  - `pylon build --help` for more information.
 
-***
+---
 
 For more information on how to use Pylon, check out our [basic usage guide](/#basic-usage).

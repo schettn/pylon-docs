@@ -1,17 +1,14 @@
 ---
-image: https://private-user-images.githubusercontent.com/52858351/334735495-ec8aa54e-6b24-45cb-82a1-03b9c8b8f45f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjI5NDE4MDMsIm5iZiI6MTcyMjk0MTUwMywicGF0aCI6Ii81Mjg1ODM1MS8zMzQ3MzU0OTUtZWM4YWE1NGUtNmIyNC00NWNiLTgyYTEtMDNiOWM4YjhmNDVmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MDYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODA2VDEwNTE0M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWJjM2YzYjU1ZjdjNWYyOWVmNTQ0ODA4OGJlZDAzNTM4MzVlNTUyNTExOTUyNjU1YWY5OWRiZGI5N2YxNmJlZWMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.m37Jq3XAA40EG5Dssxi9c_hGTlVzMHHzC17e348hGeo
-description:
-  'Almost two years of development, countless hours of testing, and a lot of love and passion have gone into the creation of Pylon 1.0. We are excited to share this milestone with you and look forward to seeing how Pylon will revolutionize your GraphQL development experience.'
+description: "Almost two years of development, countless hours of testing, and a lot of love and passion have gone into the creation of Pylon 1.0. We are excited to share this milestone with you and look forward to seeing how Pylon will revolutionize your GraphQL development experience."
 ---
 
-import Authors, { Author } from '@components/authors'
+import Authors, { Author } from "@components/authors";
 
 # Announcing Pylon 1.0
 
 <Authors date="August 6th, 2024">
   <Author name="Nico Schett" link="https://github.com/schettn" />
 </Authors>
-
 
 Almost two years of development, countless hours of testing, and a lot of love and passion have gone into the creation of Pylon 1.0. We are excited to share this milestone with you and look forward to seeing how Pylon will revolutionize your GraphQL development experience.
 
@@ -24,7 +21,6 @@ Pylon is a powerful tool that automates the creation of GraphQL schemas based on
 Manual schema definition has long been a bottleneck in GraphQL development. The process of writing type definitions and resolvers, ensuring consistency, and managing scalability often leads to inefficiencies and errors. Here’s how Pylon tackles these challenges:
 
 - **Simplified Schema Definition:** Say goodbye to manual schema files. Pylon scans your TypeScript functions and automatically generates the corresponding GraphQL schema, keeping everything in sync effortlessly.
-  
 - **Enhanced Consistency and Type Safety:** Pylon leverages TypeScript’s type system to ensure that your GraphQL schema is always aligned with your code. Any updates to TypeScript types are seamlessly reflected in the GraphQL schema, minimizing discrepancies.
 
 - **Scalability and Maintainability:** As your project grows, Pylon’s automated schema generation scales with it. This means less time spent managing schemas and more focus on building features.
@@ -36,7 +32,6 @@ Manual schema definition has long been a bottleneck in GraphQL development. The 
 With the release of Pylon 1.0, we’re introducing several key features that will elevate your GraphQL development experience:
 
 - **Automated Schema Generation:** Generate your GraphQL schema directly from your TypeScript code with minimal configuration.
-  
 - **Built-in Authentication and Authorization:** Secure your GraphQL API with ease using Pylon’s integration with ZITADEL for robust user management and access control.
 
 - **Integrated Logging and Monitoring:** Keep an eye on your API’s performance with real-time error monitoring and alerting through Sentry.
@@ -50,11 +45,13 @@ With the release of Pylon 1.0, we’re introducing several key features that wil
 Getting started with Pylon is a breeze:
 
 1. **Install Pylon CLI:** Begin by installing the Pylon CLI globally:
+
    ```bash
    npm install -g @getcronit/pylon-cli
    ```
 
 2. **Create a New Pylon Project:** Initialize a new project with:
+
    ```bash
    pylon new my-pylon-project
    ```
@@ -62,8 +59,9 @@ Getting started with Pylon is a breeze:
 3. **Annotate Your TypeScript Functions:** Define your API using TypeScript functions with Pylon’s directives.
 
 4. **Run the Development Server:** Launch your GraphQL API with:
+
    ```bash
-   bun run develop
+   bun run dev
    ```
 
 5. **Explore Your API:** Use the GraphQL Playground or Viewer to interact with and understand your API.
@@ -76,10 +74,20 @@ For more information, visit the [Pylon documentation](https://pylon.cronit.io/do
 
 Happy coding! 🚀
 
-
 ## Thank You!
 
 Special thanks to [Florian Kleber](https://github.com/kleberbaum) for his valuable discussions, which greatly influenced the creation of the early prototype called snek-function and contributed significantly to the development of this project.
 
 We also want to thank our customers who were eager to be the first adopters and are now already benefiting from the versatility and simplicity.
 A special mention goes to the [University of Vienna](https://www.univie.ac.at/en/) for their early support and feedback.
+
+<video
+  muted=""
+  autoplay=""
+  playsinline=""
+  loop=""
+  controls=""
+  className="mt-6 rounded-xl border dark:border-zinc-800"
+>
+  <source src="/sub-docs.mp4" type="video/mp4" />
+</video>

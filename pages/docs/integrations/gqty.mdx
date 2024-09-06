@@ -4,25 +4,46 @@ Pylon integrates with GQty to provide a seamless experience for developers. Whil
 
 ## Preview
 
-<iframe className='w-full aspect-video' src="https://www.youtube.com/embed/HEPBEAzsA_Y?si=RMLrnk3qebcH10UF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<video
+  muted=""
+  autoplay=""
+  playsinline=""
+  loop=""
+  controls=""
+  className="mt-6 rounded-xl border dark:border-zinc-800"
+>
+  <source src="/sub-docs.mp4" type="video/mp4" />
+</video>
 
 ## Features
 
-* **Real-time API updates**: Any breaking changes in your API are instantly reflected in your frontend, enabling you to immediately see how changes impact its functionality.
-* **Type safety**: GQty offers a first-class TypeScript experience, allowing you to see API documentation at all times within autocomplete.
-* **Automatic data requirements**: GQty automatically picks up data requirements within your application, freeing you from having to maintain GraphQL queries by-hand.
-* **Instant type-errors**: Make breaking changes to your API, and see type-errors exactly where things are breaking, in realtime.
+- **Real-time API updates**: Any breaking changes in your API are instantly reflected in your frontend, enabling you to immediately see how changes impact its functionality.
+- **Type safety**: GQty offers a first-class TypeScript experience, allowing you to see API documentation at all times within autocomplete.
+- **Automatic data requirements**: GQty automatically picks up data requirements within your application, freeing you from having to maintain GraphQL queries by-hand.
+- **Instant type-errors**: Make breaking changes to your API, and see type-errors exactly where things are breaking, in realtime.
 
 ## Getting started
 
 ```bash
-bunx @getcronit/pylon-cli
+create-pylon version 1.0.0                                                                                                                                                                                                 4:55:00 PM
+? Target directory my-pylon
+? Which runtime would you like to use? Bun.js (https://bunjs.dev)
+? Which template would you like to use? Default
+? Would you like to install dependencies? no
+◐ Creating pylon in /Users/schettn/Documents/my-pylon                                                                                                                                          4:55:11 PM
+✔ Pylon created                                                                                                                                                                                                           4:55:11 PM
+? Would you like to enable client generation? (https://pylon.cronit.io/docs/integrations/gqty) yes
+? Path to the root where the client should be generated .
+? Path to generate the client to gqty/index.ts
+? Port of the pylon server to generate the client from 3000
+◐ Updating pylon dev script to generate client                                                                                                                                                                             4:55:20 PM
+✔ Pylon dev script updated                                                                                                                                                                                                4:55:20 PM
 
-? What action would you like to take? New
-? Enter the pylon name my-pylon
-? Specify the pylon path ./my-pylon
-? Choose a pylon template Default
-? Would you like to enable an auto-generated client powered by GQty? (https://pylon.cronit.io/docs/client) yes
-? Enter the path to the frontend root .
-? Enter the path where the client should be generated src/gqty/index.ts
+ ╭───────────────────────────────────────────╮
+ │                                           │
+ │  Pylon successfully created in my-pylon.  │
+ │                                           │
+ │  Happy coding!                            │
+ │                                           │
+ ╰───────────────────────────────────────────╯
 ```

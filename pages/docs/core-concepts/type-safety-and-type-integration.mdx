@@ -14,7 +14,8 @@ By using TypeScript's various type variants, you can define rich and complex dat
 Pylon supports various TypeScript type variants, including interfaces, classes, types, functions, and enums. This allows you to define rich and complex type structures in your services.
 
 <Callout type="note" title="Note">
-  Almost all TypeScript type variants are supported in Pylon, even from external libraries.
+  Almost all TypeScript type variants are supported in Pylon, even from external
+  libraries.
 </Callout>
 
 ## Defining a Service
@@ -22,7 +23,7 @@ Pylon supports various TypeScript type variants, including interfaces, classes, 
 Here’s an example of how to define a Pylon service using different TypeScript type variants:
 
 ```typescript
-import { defineService } from "@getcronit/pylon";
+import { app } from "@getcronit/pylon";
 
 // Define a type
 type Address = {
@@ -50,7 +51,7 @@ class Product {
   constructor(public id: number, public name: string, public price: number) {}
 }
 
-export default defineService({
+export const graphql = {
   Query: {
     getUser: (id: number): User => {
       return {
@@ -58,25 +59,27 @@ export default defineService({
         name: "John Doe",
         age: 25,
         address: { street: "123 Main St", city: "Anytown", zipCode: "12345" },
-      }; // Example implementation
+      };
     },
     getProduct: (id: number): Product => {
-      return new Product(id, "Example Product", 99.99); // Example implementation
+      return new Product(id, "Example Product", 99.99);
     },
     getStatus: (): Status => {
-      return Status.ACTIVE; // Example implementation
+      return Status.ACTIVE;
     },
   },
   Mutation: {
     updateUser: (user: User): User => {
-      return { ...user, name: "Updated Name" }; // Example implementation
+      return { ...user, name: "Updated Name" };
     },
     updateProduct: (product: Product): Product => {
-      product.price = 79.99; // Example implementation
+      product.price = 79.99;
       return product;
     },
   },
-});
+};
+
+export default app;
 ```
 
 ## TypeScript Types in Pylon
@@ -157,14 +160,14 @@ export default defineService({
 
 Pylon translates these TypeScript definitions into corresponding GraphQL types:
 
-* **Types and Interfaces**: Both are mapped to GraphQL object types.
-* **Enums**: Mapped directly to GraphQL enums.
-* **Classes**: Mapped to GraphQL object types, similar to interfaces and types.
-* **Functions**: Used to define the resolver logic for your queries and mutations, with TypeScript types ensuring the correctness of inputs and outputs.
+- **Types and Interfaces**: Both are mapped to GraphQL object types.
+- **Enums**: Mapped directly to GraphQL enums.
+- **Classes**: Mapped to GraphQL object types, similar to interfaces and types.
+- **Functions**: Used to define the resolver logic for your queries and mutations, with TypeScript types ensuring the correctness of inputs and outputs.
 
 ## Type Variants and GraphQL
 
-* **Union Input Types**: Currently, GraphQL does not support union input types, so they cannot be used in Pylon.
+- **Union Input Types**: Currently, GraphQL does not support union input types, so they cannot be used in Pylon.
 
   ```typescript
   type UserInput = {
@@ -181,7 +184,7 @@ Pylon translates these TypeScript definitions into corresponding GraphQL types:
 
   // This will not work in Pylon
 
-  export default defineService({
+  export const graphql = {
     Mutation: {
       update: (input: Input) => {
         // Example implementation
@@ -189,10 +192,10 @@ Pylon translates these TypeScript definitions into corresponding GraphQL types:
         return "Success";
       },
     },
-  });
+  };
   ```
 
-* **Union Output Types**: Supported by GraphQL but do not yet create an interface in Pylon. They can still be defined to return multiple types, though their integration might be limited.
+- **Union Output Types**: Supported by GraphQL but do not yet create an interface in Pylon. They can still be defined to return multiple types, though their integration might be limited.
 
   ```typescript
   type User = {
@@ -207,7 +210,7 @@ Pylon translates these TypeScript definitions into corresponding GraphQL types:
 
   type Output = User | Product;
 
-  export default defineService({
+  export const graphql = {
     Query: {
       get: (): Output => {
         // Example implementation
@@ -215,10 +218,10 @@ Pylon translates these TypeScript definitions into corresponding GraphQL types:
         return { id: 1, name: "John Doe" };
       },
     },
-  });
+  };
   ```
 
-* **Intersection Types**: Supported by GraphQL and can be used in Pylon. They can be used to define more complex types by combining multiple types.
+- **Intersection Types**: Supported by GraphQL and can be used in Pylon. They can be used to define more complex types by combining multiple types.
 
   ```typescript
   type User = {
@@ -233,7 +236,7 @@ Pylon translates these TypeScript definitions into corresponding GraphQL types:
 
   type UserWithAddress = User & Address;
 
-  export default defineService({
+  export const graphql = {
     Query: {
       getUserWithAddress: (): UserWithAddress => {
         // Example implementation
@@ -246,10 +249,10 @@ Pylon translates these TypeScript definitions into corresponding GraphQL types:
         };
       },
     },
-  });
+  };
   ```
 
-* **Recursive Types**: Supported by GraphQL and can be used in Pylon. They can be used to define recursive data structures.
+- **Recursive Types**: Supported by GraphQL and can be used in Pylon. They can be used to define recursive data structures.
 
   ```typescript
   type Node = {
@@ -257,7 +260,7 @@ Pylon translates these TypeScript definitions into corresponding GraphQL types:
     children: Node[];
   };
 
-  export default defineService({
+  export const graphql = {
     Query: {
       getNode: (): Node => {
         // Example implementation
@@ -265,17 +268,17 @@ Pylon translates these TypeScript definitions into corresponding GraphQL types:
         return { id: 1, children: [{ id: 2, children: [] }] };
       },
     },
-  });
+  };
   ```
 
-* **Type Assertions**: TypeScript type assertions can be used to override the inferred type of an expression. This can be useful when the type system cannot infer the correct type.
+- **Type Assertions**: TypeScript type assertions can be used to override the inferred type of an expression. This can be useful when the type system cannot infer the correct type.
 
   ```typescript
   const data: any = { id: 1, name: "John Doe" };
 
   const user = data as User;
 
-  export default defineService({
+  export const graphql = {
     Query: {
       getUser: (): User => {
         // Example implementation
@@ -283,47 +286,47 @@ Pylon translates these TypeScript definitions into corresponding GraphQL types:
         return user;
       },
     },
-  });
+  };
   ```
 
-- **Type Inference**: Pylon leverages TypeScript's powerful type inference capabilities to automatically infer types where possible. This reduces the need for explicit type annotations and makes your code more concise.
+* **Type Inference**: Pylon leverages TypeScript's powerful type inference capabilities to automatically infer types where possible. This reduces the need for explicit type annotations and makes your code more concise.
 
   ```typescript
-  export default defineService({
+  export const graphql = {
     Query: {
       getUser: () => {
         // Example implementation
 
         return {
           id: 1,
-          name: 'John Doe',
+          name: "John Doe",
           age: 25,
-          address: {street: '123 Main St', city: 'Anytown', zipCode: '12345'},
+          address: { street: "123 Main St", city: "Anytown", zipCode: "12345" },
           posts: (query: string) => {
             // Example implementation
             return [
-              {id: 1, title: 'Post 1'},
-              {id: 2, title: 'Post 2'},
+              { id: 1, title: "Post 1" },
+              { id: 2, title: "Post 2" },
               {
                 id: 3,
-                title: 'Post 3',
+                title: "Post 3",
                 data: async () => {
                   // Fetch the data from an external API
 
                   const response = await fetch(
-                    'https://api.example.com/posts/3'
-                  )
-                  const data = await response.json()
+                    "https://api.example.com/posts/3"
+                  );
+                  const data = await response.json();
 
-                  return data
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  })
+                  return data;
+                },
+              },
+            ];
+          },
+        };
+      },
+    },
+  };
   ```
 
 ## Example in Action
@@ -445,10 +448,10 @@ In this example, the `UserWithoutAge` type excludes the `age` field from the `Us
 
 ### When to use `private` vs. `Omit` vs. `#` vs. `$`
 
-* **`private`**: The `private` keyword is a compile-time check that prevents access to the field outside the class. Use this when you want to hide fields in classes and exclude them from the GraphQL schema.
-* **`Omit`**: Use the `Omit` utility type when you want to exclude fields from an object type. This is useful when you want to hide fields in object types and exclude them from the GraphQL schema.
-* **`#`**: Similar to `private`, the `#` prefix makes a field private to the class (runtime). Use this when you want to hide fields in classes and exclude them from the GraphQL schema.
-* **`$`**: Use this when you don't want to expose a field in the GraphQL schema but still want to access it within your code.
+- **`private`**: The `private` keyword is a compile-time check that prevents access to the field outside the class. Use this when you want to hide fields in classes and exclude them from the GraphQL schema.
+- **`Omit`**: Use the `Omit` utility type when you want to exclude fields from an object type. This is useful when you want to hide fields in object types and exclude them from the GraphQL schema.
+- **`#`**: Similar to `private`, the `#` prefix makes a field private to the class (runtime). Use this when you want to hide fields in classes and exclude them from the GraphQL schema.
+- **`$`**: Use this when you don't want to expose a field in the GraphQL schema but still want to access it within your code.
 
 ## Conclusion
 
