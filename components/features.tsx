@@ -110,23 +110,24 @@ const FEATURES_LIST = [
     ),
   },
   {
-    key: "logging",
+    key: "runtimes",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
+        className="icon icon-tabler icon-tabler-stack-back"
         width="24"
         height="24"
         viewBox="0 0 24 24"
-        fill="none"
+        stroke-width="1.5"
         stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
+        fill="none"
+        stroke-linecap="round"
         stroke-linejoin="round"
-        className="icon icon-tabler icons-tabler-outline icon-tabler-clipboard"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
-        <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+        <path d="M4 8l8 4l8 -4l-8 -4z" />
+        <path d="M12 16l-4 -2l-4 2l8 4l8 -4l-4 -2l-4 2z" fill="currentColor" />
+        <path d="M8 10l-4 2l4 2m8 0l4 -2l-4 -2" />
       </svg>
     ),
   },
@@ -216,7 +217,7 @@ export default function Features() {
     typeSafety: "Type Safety",
     authentication: "OIDC Auth",
     authorization: "Role-Based",
-    logging: "Logging",
+    runtimes: "Multiple Runtimes",
     errorTracking: "Error Tracking",
     databaseIntegration: "Prisma Integration",
     optimizedDeployment: "Docker Ready",
