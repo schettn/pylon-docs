@@ -62,7 +62,7 @@ This will create a new directory called `my-pylon` with a basic Pylon project st
 Pylon projects are structured as follows:
 
 ```
-my-pylon-project/
+my-pylon/
 ├── .pylon/
 ├── src/
 │   ├── index.ts
@@ -135,8 +135,8 @@ To deploy your Pylon project to production, you can use the included Dockerfile 
 Pylon comes with a pre-configured Dockerfile that you can use to deploy your project. To build and run your project using Docker, run the following commands:
 
 ```bash copy
-docker build -t my-pylon-project .
-docker run -p 3000:3000 my-pylon-project
+docker build -t my-pylon .
+docker run -p 3000:3000 my-pylon
 ```
 
 Your Pylon server should now be running in a Docker container at `http://localhost:3000`.
