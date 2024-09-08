@@ -8,9 +8,9 @@
     "type": "page",
     "title": "Docs"
   },
-  "examples": {
+  "playground": {
     "type": "page",
-    "title": "Examples",
+    "title": "Playground",
     "theme": {
       "layout": "full"
     }
