@@ -54,7 +54,7 @@ export const graphql = {
         console.error("Attempt to divide by zero");
         throw new Error("Division by zero is not allowed");
       }
-      logger.info(`Dividing ${a} by ${b}`);
+      console.log(`Dividing ${a} by ${b}`);
       return a / b;
     },
   },
