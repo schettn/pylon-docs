@@ -2,7 +2,11 @@
   "index": {
     "title": "Introduction",
     "type": "page",
-    "display": "hidden"
+    "display": "hidden",
+    "theme": {
+      "timestamp": false,
+      "layout": "full"
+    }
   },
   "docs": {
     "type": "page",
@@ -12,7 +16,8 @@
     "type": "page",
     "title": "Playground",
     "theme": {
-      "layout": "full"
+      "layout": "full",
+      "timestamp": false
     }
   },
   "imprint": {
