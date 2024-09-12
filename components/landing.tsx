@@ -21,7 +21,7 @@ export const Landing: React.FC = () => {
           </h2>
         </div>
       </div>
-      <div className="mt-10 flex items-center justify-center gap-4">
+      <div className="mt-10 flex items-center justify-center gap-4 flex-col md:flex-row">
         <Button asChild>
           <Link href="/docs">
             Explore documentation
