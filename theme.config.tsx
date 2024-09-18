@@ -47,7 +47,7 @@ const config: DocsThemeConfig = {
     const config = useConfig<{ description?: string; image?: string }>();
     const description =
       config.frontMatter.description ||
-      "Pylon is a code-first GraphQL API development tool that generates GraphQL schemas from TypeScript definitions in real-time.";
+      "A code-first framework for GraphQL API development, where your schema reflects your functionality.";
     const image = config.frontMatter.image || "/images/logo.png";
     return (
       <>
