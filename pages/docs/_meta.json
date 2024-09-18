@@ -6,6 +6,10 @@
   "release-notes": "Release Notes",
   "faq": "FAQ",
   "telemetry": "Telemetry",
+  "pylon-v1": {
+    "title": "Pylon v1",
+    "href": "https://v1-pylon.cronit.io"
+  },
   "about": {
     "title": "About",
     "type": "page"
