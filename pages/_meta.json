@@ -2,17 +2,22 @@
   "index": {
     "title": "Introduction",
     "type": "page",
-    "display": "hidden"
+    "display": "hidden",
+    "theme": {
+      "timestamp": false,
+      "layout": "full"
+    }
   },
   "docs": {
     "type": "page",
     "title": "Docs"
   },
-  "examples": {
+  "playground": {
     "type": "page",
-    "title": "Examples",
+    "title": "Playground",
     "theme": {
-      "layout": "full"
+      "layout": "full",
+      "timestamp": false
     }
   },
   "imprint": {

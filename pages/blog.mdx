@@ -2,18 +2,18 @@
 searchable: false
 ---
 
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { getPagesUnderRoute } from 'nextra/context'
-import filterRouteLocale from 'nextra/filter-route-locale'
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { getPagesUnderRoute } from "nextra/context";
+import filterRouteLocale from "nextra/filter-route-locale";
 
 export function Page() {
-  const { locale, defaultLocale } = useRouter()
+  const { locale, defaultLocale } = useRouter();
   return filterRouteLocale(
-    getPagesUnderRoute('/blog'),
+    getPagesUnderRoute("/blog"),
     locale,
     defaultLocale
-  ).map(page => (
+  ).map((page) => (
     <div key={page.route}>
       <Link
         href={page.route}
@@ -32,7 +32,7 @@ export function Page() {
       </p>
       <p>{page.date}</p>
     </div>
-  ))
+  ));
 }
 
 # Pylon Blog

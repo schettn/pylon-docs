@@ -5,6 +5,14 @@ import Logo from "./components/logo";
 import { useRouter } from "next/router";
 
 const config: DocsThemeConfig = {
+  banner: {
+    key: "2.0-release",
+    text: (
+      <a href="/blog/pylon-2.0" target="_blank">
+        🎉 Pylon 2.0 is released. Read more →
+      </a>
+    ),
+  },
   logo: <Logo />,
   project: {
     link: "https://github.com/getcronit/pylon",
@@ -67,7 +75,12 @@ const config: DocsThemeConfig = {
           href="/favicon/safari-pinned-tab.svg"
           color="#5bbad5"
         />
-        <meta name="msapplication-TileColor" content="#2d89ef" />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta
+          name="msapplication-config"
+          content="/favicon/browserconfig.xml"
+        />
         <meta name="theme-color" content="#ffffff" />
 
         <meta httpEquiv="Content-Language" content="en" />

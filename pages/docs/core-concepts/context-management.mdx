@@ -8,39 +8,37 @@ In Pylon, context management plays a crucial role in handling incoming requests,
 
 Pylon leverages [Hono](https://hono.dev/), a fast and lightweight web framework, to power its underlying infrastructure. Understanding how to interact with the Hono framework is essential for customizing routes, middleware, and other configurations within your Pylon application.
 
-### `configureApp` Function
+### `app` Instance
 
-The `configureApp` function is a key entry point for configuring your Pylon application. It allows you to access the Hono app instance and define custom routes and middleware.
+The `app` instance in Pylon represents the Hono application and provides a central point for defining routes, middleware, and other application-specific configurations. By accessing the `app` instance, you can define custom logic and behavior tailored to your application's requirements.
 
 ```typescript
-import { defineService, PylonAPI } from "@getcronit/pylon";
+import { app, PylonAPI } from "@getcronit/pylon";
 
-export default defineService({
+export const graphql = {
   Query: {
     sum: (a: number, b: number) => a + b,
   },
   Mutation: {
     divide: (a: number, b: number) => a / b,
   },
+};
+
+app.get("/hello", (ctx, next) => {
+  return new Response("Hello, world!");
 });
 
-export const configureApp: PylonAPI["configureApp"] = (app) => {
-  app.get("/hello", (ctx, next) => {
-    return new Response("Hello, world!");
-  });
-};
+export default app;
 ```
 
 ### Custom Routes and Middleware
 
-Within the `configureApp` function, you can define custom routes and middleware using the Hono app instance. This provides flexibility in handling different types of requests and implementing additional functionality.
+By utilizing the `app` instance, you can define custom routes and middleware to handle incoming requests and implement additional functionality. This allows you to customize your application's behavior and extend its capabilities as needed.
 
 ```typescript
-export const configureApp: PylonAPI["configureApp"] = (app) => {
-  app.get("/hello", (ctx, next) => {
-    return new Response("Hello, world!");
-  });
-};
+app.get("/hello", (ctx, next) => {
+  return new Response("Hello, world!");
+});
 ```
 
 For more detailed information on utilizing the Hono app instance, refer to the [Hono documentation](https://hono.dev/getting-started/basic).
