@@ -29,7 +29,7 @@ export const Landing: React.FC = () => {
           </Link>
         </Button>
 
-        <ClipboardButton text="npm create pylon" />
+        <ClipboardButton text="npm create pylon@latest" />
       </div>
     </div>
   );
