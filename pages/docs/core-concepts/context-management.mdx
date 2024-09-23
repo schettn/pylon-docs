@@ -72,6 +72,27 @@ export const graphql = {
 export default app;
 ```
 
+### `getEnv` Function
+
+Depending on your runtime enviroment, handling enviroment variables might differ. In Node.js or Bun, you can use the `process.env` object to access enviroment variables. In Cloudflare Workers, this is not possible.
+Pylon provides the `getEnv` function to access enviroment variables in a runtime-agnostic way.
+
+```typescript
+import { getEnv } from "@getcronit/pylon";
+
+export const graphql = {
+  Query: {
+    secret: () => {
+      const secret = getEnv().SECRET_KEY;
+
+      return new Response(`The secret key is: ${secret}`);
+    },
+  },
+};
+
+export default app;
+```
+
 ### Handling Authorization Logic
 
 By accessing the request context within service functions, you can implement custom authorization logic based on incoming request attributes. This allows you to enforce access control policies and protect sensitive resources within your application.
