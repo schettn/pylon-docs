@@ -52,9 +52,9 @@ Service functions in Pylon often require access to request-specific data or cont
 The `getContext` function from the `@getcronit/pylon` package enables service functions to access the request context. This includes request headers, parameters, and other relevant information necessary for processing incoming requests.
 
 ```typescript
-import { defineService, getContext } from "@getcronit/pylon";
+import { app, getContext } from "@getcronit/pylon";
 
-export default defineService({
+export const graphql = {
   Query: {
     protected: () => {
       const ctx = getContext();
@@ -67,7 +67,9 @@ export default defineService({
       return new Response("The secret is safe with me!");
     },
   },
-});
+};
+
+export default app;
 ```
 
 ### Handling Authorization Logic
